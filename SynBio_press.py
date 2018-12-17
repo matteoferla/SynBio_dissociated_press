@@ -3,7 +3,8 @@
 __description__ = \
     """
 This small script generates Markov chain random text (called Lorem Ipsum, dissociated press, technobabble etc.).
-See the readme for the GitHub.
+See the readme of the GitHub or the docstrings of the methods.
+Do note that the Entrez email address needs to be filled to be able to use the static method `fetch_abstracts`. 
 
 NB. Written for python 3, not tested under 2.
 """
@@ -22,7 +23,7 @@ if sys.version_info[0] < 3:
     raise NotImplementedError("Oi, $%£$#head! This is a python3 script.\n")
 
 ############ Please edit accordingly #########
-Entrez.email = "matteo.ferla@gmail.com"
+Entrez.email = "****@gmail.com"
 ##############################################
 
 class Press:

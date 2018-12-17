@@ -29,5 +29,6 @@ Which takes a few hours (no parallelisation). Then the Markov chain probabilitie
     >>> Press.make_trainer()
 
 Which, unless specified differently generates the file `abstract.json`, and returns a generator.
+Do note that the Entrez email address needs to be filled to be able to use the static method `fetch_abstracts`.
 
 For options on each see the docstrings on the relevant methods.
