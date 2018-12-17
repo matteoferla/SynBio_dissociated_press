@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 __description__ = \
     """
+This small script generates Markov chain random text (called Lorem Ipsum, dissociated press, technobabble etc.).
+See the readme for the GitHub.
 
 NB. Written for python 3, not tested under 2.
 """
@@ -24,6 +26,9 @@ Entrez.email = "matteo.ferla@gmail.com"
 ##############################################
 
 class Press:
+    """
+    Instantiation loads the data from the trained json file, while the bound method `.generate()` generates the text.
+    """
     def __init__(self, trained='abstracts.json', data=None):
         if data:
             self._pdex = data
@@ -32,6 +37,12 @@ class Press:
                 self._pdex = json.load(w)
 
     def generate(self, minimum=100, maximum=1000):
+        """
+        Generates the text and returns it.
+        :param minimum: smallest number of words (it can get to a dead end.)
+        :param maximum: the hard limit to number of words.
+        :return: string
+        """
         dlist = list(self._pdex.keys())
         story = [random.choices(dlist, weights=[float(sum(self._pdex[d].values())) for d in dlist])[0].capitalize()]
         for i in range(maximum):
@@ -41,12 +52,18 @@ class Press:
             else:
                 break
         if len(story) > minimum:
-            return ' '.join(story).replace(' STOP', '.\n')
+            return ' '.join(story).replace(' STOP', '.\n').replace('\n ','\n')
         else:
             return self.generate(minimum, maximum)
 
     @classmethod
     def make_trainer(cls, raw='abstracts.txt', trained='abstracts.json'):
+        """
+        Converts the file from the static method `.fetch_abstract(term)`, which fetched the abstracts, into a json.
+        :param raw: the text file input
+        :param trained: the json file output
+        :return: a Press instance
+        """
         text = open(raw).read()
         # d=re.findall('(\w+)',text)
         d = re.sub('[^\w\.]', ' ', text).replace('. ', ' STOP ').split()
@@ -69,10 +86,6 @@ class Press:
                                 'AbstractText'][0])
                 except Exception:
                     print(Exception)
-
-def main(infile, outfile):
-    pass
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__description__)
