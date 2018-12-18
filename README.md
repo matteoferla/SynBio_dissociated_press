@@ -1,4 +1,8 @@
 # Synthetic biology technobabble generator
+
+_This piece of code can be found running at [pi.matteoferla.com/main/press](pi.matteoferla.com/main/press)._
+
+
 This small script generates Markov chain random text (called Lorem Ipsum, dissociated press, technobabble etc.)
 
 To generate random text simply run the python3 script thusly:
