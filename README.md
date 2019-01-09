@@ -5,7 +5,7 @@ _This piece of code can be found running at [pi.matteoferla.com/main/press](pi.m
 
 This small script generates Markov chain random text (called Lorem Ipsum, dissociated press, technobabble etc.)
 
-To generate random text simply run the python3 script thusly:
+To generate random text simply run the python3.6 (or higher) script thusly:
 
     $ python3 SynBio_press.py
     We present work of integration system.
