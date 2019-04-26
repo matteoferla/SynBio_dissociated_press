@@ -1,6 +1,6 @@
 # Synthetic biology technobabble generator
 
-_This piece of code can be found running at [pedel.matteoferla.com/main/press](pi.matteoferla.com/main/press)._
+_This piece of code can be found running at [https://pedel.matteoferla.com/main/press](pi.matteoferla.com/main/press)._
 
 
 This small script generates Markov chain random text (called Lorem Ipsum, dissociated press, technobabble etc.)
